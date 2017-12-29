@@ -3,6 +3,7 @@ version: '2'
 services:
   netdata:
     image: titpetric/netdata
+    container_name: netdata_netdata
     hostname: 'YourHostname'
     volumes:
       - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime
@@ -15,6 +16,7 @@ services:
   nginx:
     build:
       context: nginx/
+    container_name: netdata_nginx
     volumes:
       - ./nginx/netdata.conf:/etc/nginx/conf.d/default.conf
       - ./nginx/htpasswd:/etc/nginx/conf.d/htpasswd
